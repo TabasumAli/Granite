@@ -307,7 +307,7 @@ model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
     device_map="auto",
     torch_dtype=torch.float32,
-     offload_folder="offload",
+    offload_folder="offload",
     ignore_mismatched_sizes=True  # 🚀 Fixes sharded checkpoint issues
 )
 
