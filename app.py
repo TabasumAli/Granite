@@ -302,7 +302,7 @@ MODEL_NAME = "ibm-granite/granite-3.1-2b-instruct"
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    device_map="cpu",
+    device_map="auto",
     torch_dtype=torch.float32,
     ignore_mismatched_sizes=True  # 🚀 Fixes sharded checkpoint issues
 )
