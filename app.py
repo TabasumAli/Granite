@@ -293,6 +293,9 @@ import torch
 import pdfplumber
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import get_peft_model, LoraConfig, TaskType
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from accelerate import load_checkpoint_and_dispatch
+
 
 # ✅ Force CPU execution for Streamlit Cloud
 device = torch.device("cpu")
@@ -304,6 +307,7 @@ model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
     device_map="auto",
     torch_dtype=torch.float32,
+     offload_folder="offload",
     ignore_mismatched_sizes=True  # 🚀 Fixes sharded checkpoint issues
 )
 
